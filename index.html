@@ -1,28 +1,87 @@
 <!DOCTYPE html>
+
 <html>
+
   <head>
+
      <meta charset="utf-8">
-    <title>Segunda Fase</title>
 
-    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-  
+    <title>Trabalho Prático - Final</title>
+
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+
+    <script  src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.1.2/dist/aframe-physics-system.min.js"></script>  
+
+    <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+
+    <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
+
+    <script type="text/javascript">
+      AFRAME.registerComponent("bloco", {            
+         init: function () {       
+        this.el.addEventListener("collisions", (e) => {        
+                 
+          alert("Fim de Jogo !!!")          
+          location.reload()      
+           })     
+            }
+    });
+
+
+    </script>
+
   </head>
+
   <body>
-    <a-scene>
+
+    <a-scene >
+      <a-torus color="black" position="0 -21 -125" radius="10"></a-torus>
+      <a-torus color="#4682B4" position="0 -21 -125" radius="12" radius-tubular="0.8"></a-torus>
+      <a-torus color="black" position="0 -21 -125" radius="11" radius-tubular="0.8"></a-torus>
+      <a-torus color="#4682B4" position="0 -21 -125" radius="13" radius-tubular="0.8"></a-torus>
+
+      <a-text value="Proxima Fase!" position="-2.4 -14.5 -120" color="black" width="20"></a-text>
+      <a-box position="0 -14.5 -121" rotation="0 0 0" width="8" height="2.5" depth="0.1" color="#008B8B"></a-box>
+
+      <a-cylinder position=" 4.7 -19.5 -122" rotation="0 45 0" radius="1" height="12" depth="0.2" color="black"></a-cylinder>
+      <a-cylinder position="-4.5 -19.5 -122" rotation="0 45 0" radius="1" height="12" depth="0.2" color="black"></a-cylinder>
+
+      <a-assets>
+        <a-asset-item id="ball" src="circulo.glb"></a-asset-item>
+      </a-assets>
+
+      <a-entity gltf-model="#ball" position="-1.0 -3.0 -7.7" scale="7.5 5 7.5" static-body wasd-controls></a-entity>
+
       
-      
-<a-assets>
-    <img id="platform" src="Desert.jpg">
-  </a-assets>
-  <a-box position="-6 -3 -6"  color="black"  width= 2 height= 2></a-box>
-      <a-triangle src="#platform" position="-1 -3.0 -10"  color="#EF2D5E" ></a-triangle>
-      <a-triangle position="1 -3.0 -13"  color="#4CC3D9"></a-triangle>
-      <a-triangle position="-3 -3.0 -15"  color="#7BC8A4"></a-triangle>
+      <a-box  position="3.5 -2.0 -13" color="#48D1CC" width="4.0" height="3.0" depth="7"  bloco
+      dynamic-body physics-collider="ignoreSleep: true"></a-box>
+     
+      <a-box position="-3.0 -6.0 -30" color="#48D1CC" width="5.5" height="5.5" depth="7"  bloco
+      dynamic-body physics-collider="ignoreSleep: true"></a-box>
+
+      <a-box position="2.9 -7.5 -58" color="#48D1CC" width="7.5" height="10.5" depth="7"  bloco
+      dynamic-body physics-collider="ignoreSleep: true"></a-box>
+
+      <a-box position="-2.9 -9.5 -88" color="#48D1CC" width="8.5" height="12.5" depth="7"  bloco
+      dynamic-body physics-collider="ignoreSleep: true"></a-box>
+
+     
+
+       <a-plane position="-8.0 -4 -10" rotation="-100 0 0" width="1" height="2000" color="#48D1CC" bloco
+      dynamic-body physics-collider="ignoreSleep: true"></a-plane> 
+
+       <a-plane position="8.0 -4 -10" rotation="-100 0 0" width="1" height="2000" color="#48D1CC" bloco
+      dynamic-body physics-collider="ignoreSleep: true"></a-plane> 
 
 
-    
+      <a-plane position="0 -4 -10" rotation="-100 0 0" width="15" height="2000" color="#008080"></a-plane>  
       
+      <a-sky src="space1.png"></a-sky>
+
     </a-scene>
+
   </body>
+
 </html>
+
   
